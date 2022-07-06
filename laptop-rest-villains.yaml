@@ -1,0 +1,25 @@
+name: laptop-rest-villains
+qdr-listeners:
+  - name: amqp
+    host: localhost
+    port: 5672
+bindings:
+  - name: rest-villains
+    host: host.docker.internal
+    service:
+      address: rest-villains:80
+      protocol: http
+      ports:
+        - 8084
+    target_ports:
+      - 8084
+#forwards:
+#  - name: ingress-database:5432
+#    host: 0.0.0.0
+#    service:
+#      address: database:5432
+#      protocol: tcp
+#      ports:
+#        - 5432
+#    target_ports:
+#      - 5432

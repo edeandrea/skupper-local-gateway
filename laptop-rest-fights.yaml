@@ -1,0 +1,52 @@
+name: laptop-rest-fights
+qdr-listeners:
+  - name: amqp
+    host: localhost
+    port: 5672
+bindings:
+  - name: rest-fights
+    host: host.docker.internal
+    service:
+      address: rest-fights:80
+      protocol: http
+      ports:
+        - 8082
+    target_ports:
+      - 8082
+forwards:
+  - name: rest-villains:80
+    host: 0.0.0.0
+    service:
+      address: rest-villains:80
+      protocol: tcp
+      ports:
+        - 8084
+    target_ports:
+      - 8084
+  - name: rest-heroes:80
+    host: 0.0.0.0
+    service:
+      address: rest-heroes:80
+      protocol: tcp
+      ports:
+        - 8083
+    target_ports:
+      - 8083
+  - name: apicurio:8080
+    host: 0.0.0.0
+    service:
+      address: apicurio:8080
+      protocol: tcp
+      ports:
+        - 8086
+    target_ports:
+      - 8086
+  - name: fights-kafka:9092
+    host: 0.0.0.0
+    service:
+      address: fights-kafka:9092
+      protocol: tcp
+      ports:
+        - 9092
+    target_ports:
+      - 9092
