@@ -17,7 +17,7 @@ forwards:
   - name: rest-villains:80
     host: 0.0.0.0
     service:
-      address: rest-villains:80
+      address: rest-villains-forward:80
       protocol: http
       ports:
         - 8084
@@ -26,7 +26,7 @@ forwards:
   - name: rest-heroes:80
     host: 0.0.0.0
     service:
-      address: rest-heroes:80
+      address: rest-heroes-forward:80
       protocol: http
       ports:
         - 8083
@@ -35,7 +35,7 @@ forwards:
   - name: apicurio:8080
     host: 0.0.0.0
     service:
-      address: apicurio:8080
+      address: apicurio-forward:8080
       protocol: http
       ports:
         - 8086
@@ -44,7 +44,7 @@ forwards:
   - name: fights-kafka:9092
     host: 0.0.0.0
     service:
-      address: fights-kafka:9092
+      address: fights-kafka-forward:9092
       protocol: tcp
       ports:
         - 9092
