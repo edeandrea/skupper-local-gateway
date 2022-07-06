@@ -20,3 +20,5 @@ These instructions have only been tested on macOS Monterey on a Macbook M1Pro.
 11. Start local service
 12. `./launch.sh -t docker`
 13. `skupper expose service <service_name> --address <service_name> --port <incoming_service_port> --target-port <outgoing_service_port> --protocol http`
+
+Now the traffic on your Kubernetes/OpenShift cluster will route through your local laptop & back out to the cluster.
