@@ -13,7 +13,7 @@ These instructions have only been tested on macOS Monterey on a Macbook M1Pro.
 4. `mkdir -p bundle/<laptop_file_name>`
 5. `skupper gateway generate-bundle <laptop_file_name>.yaml bundle/<laptop_file_name>`
 6. `cd bundle/<laptop_file_name>`
-7. `gzip -dc laptop.tar.gz | tar xvf -`
+7. `gzip -dc <laptop_file_name>.tar.gz | tar xvf -`
 8. `chmod +x launch.sh`
 9. Copy [`captureports.py`](captureports.py) into `bundle/<laptop_file_name>`
 10. Patch `bundle/<laptop_file_name>/launch.sh` by replacing the last `elif` with contents from [`launch.sh`](launch.sh)
