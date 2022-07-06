@@ -7,7 +7,7 @@ These instructions are for working with the [Quarkus Superheroes sample](https:/
 These instructions have only been tested on macOS Monterey on a Macbook M1Pro.
 
 1. Create [`laptop-rest-villains.yaml`](laptop-rest-villains.yaml) or [`laptop-rest-fights.yaml`](laptop-rest-fights.yaml)
-    1a. If using `laptop-rest-fights.yaml`, in `/etc/hosts`, add entry for `fights-kafka` -> `localhost`
+    - If using `laptop-rest-fights.yaml`, in `/etc/hosts`, add entry for `fights-kafka` -> `localhost`
 2. `oc project <my-project>`
 3. `skupper init`
 4. `mkdir -p bundle/<laptop_file_name>`
