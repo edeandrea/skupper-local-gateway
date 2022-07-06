@@ -18,7 +18,7 @@ forwards:
     host: 0.0.0.0
     service:
       address: rest-villains:80
-      protocol: tcp
+      protocol: http
       ports:
         - 8084
     target_ports:
@@ -27,7 +27,7 @@ forwards:
     host: 0.0.0.0
     service:
       address: rest-heroes:80
-      protocol: tcp
+      protocol: http
       ports:
         - 8083
     target_ports:
@@ -36,7 +36,7 @@ forwards:
     host: 0.0.0.0
     service:
       address: apicurio:8080
-      protocol: tcp
+      protocol: http
       ports:
         - 8086
     target_ports:
