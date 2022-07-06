@@ -4,7 +4,7 @@ These instructions are for working with the [Quarkus Superheroes sample](https:/
 
 ## Skupper Setup instructions
 
-These instructions have only been tested on macOS Monterey on a Macbook M1Pro.
+These instructions have only been tested on macOS Monterey on a Macbook M1Pro. You need to follow this for each & every namespace you want to proxy. The bundle that skupper generates is specific to a Kubernetes namespace.
 
 1. Create [`laptop-rest-villains.yaml`](laptop-rest-villains.yaml) or [`laptop-rest-fights.yaml`](laptop-rest-fights.yaml)
     - If using `laptop-rest-fights.yaml`, in `/etc/hosts`, add entry for `fights-kafka` -> `localhost`
