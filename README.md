@@ -44,4 +44,4 @@ These instructions have only been tested on macOS Monterey on a Macbook M1Pro.
     - If proxying [`rest-heroes`](https://github.com/quarkusio/quarkus-super-heroes/tree/main/rest-heroes) or [`rest-villains`](https://github.com/quarkusio/quarkus-super-heroes/tree/main/rest-villains), there isn't any additional configuration needed.
     - Once config is done, start the local service in [Dev Mode](https://quarkus.io/guides/dev-mode-differences) (`mvnw quarkus:dev` or `quarkus dev`).
 
-Now the traffic on your Kubernetes/OpenShift cluster will route through your local laptop & back out to the cluster.
+Now the traffic on your Kubernetes/OpenShift cluster will route through your local laptop & back out to the cluster. The database (MongoDB for `rest-fights` or PostgreSQL for `rest-heroes`/`rest-villains`) will be running locally and managed by Q[uarkus Dev Services](https://quarkus.io/guides/dev-services).
