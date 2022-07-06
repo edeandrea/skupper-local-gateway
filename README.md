@@ -2,7 +2,7 @@
 
 These instructions are for working with the [Quarkus Superheroes sample](https://github.com/quarkusio/quarkus-super-heroes). They allow you to use [Skupper](https://skupper.io) to proxy traffic of one of the individual services to your local laptop where you can run that service in [Quarkus Dev Mode](https://quarkus.io/guides/dev-mode-differences).
 
-# Skupper Setup instructions
+## Skupper Setup instructions
 
 These instructions have only been tested on macOS Monterey on a Macbook M1Pro.
 
@@ -45,3 +45,17 @@ These instructions have only been tested on macOS Monterey on a Macbook M1Pro.
     - Once config is done, start the local service in [Dev Mode](https://quarkus.io/guides/dev-mode-differences) (`mvnw quarkus:dev` or `quarkus dev`).
 
 Now the traffic on your Kubernetes/OpenShift cluster will route through your local laptop & back out to the cluster. The database (MongoDB for `rest-fights` or PostgreSQL for `rest-heroes`/`rest-villains`) will be running locally and managed by Q[uarkus Dev Services](https://quarkus.io/guides/dev-services).
+
+## Undo the setup
+To undo what you've done you basically have to unexpose everything you've exposed.
+
+1. Stop the local running service
+2. For every `skupper expose service` you performed above, perform a `skupper unexpose service <service_name> --address <address>`
+3. From the `bundle/<laptop_file_name>` directory, `chmod +x remove.sh`
+4. Execute `./remove.sh`
+5. Execute `skupper delete` to clean up skupper from the namespace
+6. Sometimes the Kubernetes `Service` does not get cleaned up properly (the `selector` remains looking for the `skupper-router`). If that happens you can simply re-deploy the `Service`
+    - For `rest-fights`, find the `Service` in https://github.com/quarkusio/quarkus-super-heroes/blob/main/rest-fights/deploy/k8s/java17-openshift.yml and re-deploy it
+    - For `rest-villains`, find the `Service` in https://github.com/quarkusio/quarkus-super-heroes/blob/main/rest-villains/deploy/k8s/java17-openshift.yml and re-deploy it
+
+If you proxied `rest-fights` you'll notice after returning to the UI that the fight results now differ from the event statistics. This is because the event statistics is reading from the Kafka topic whereas the fights UI is reading from the MongoDB database. When the proxy was in place, a local instance of MongoDB was used, but outgoing messages were still sent to the Kafka topic on the cluster.
