@@ -8,7 +8,9 @@ These instructions have only been tested on macOS Monterey on a Macbook M1Pro. Y
 
 1. Create [`laptop-rest-villains.yaml`](laptop-rest-villains.yaml) or [`laptop-rest-fights.yaml`](laptop-rest-fights.yaml)
     - If using `laptop-rest-fights.yaml`, in `/etc/hosts`, add entry for `fights-kafka` -> `localhost`
-2. Execute these commands, making sure :
+2. Execute these commands, making sure to replace
+    - `<my_project>` with the name of your Kubernetes namespace/OpenShift project
+    - `<laptop_file_name>` with the name of the laptop yaml file without the `.yaml` extension (i.e. `laptop-rest-fights`)
    ```shell
    PROJECT_NAME=<my_project>
    LAPTOP_FILE_NAME=<laptop_file_name>
