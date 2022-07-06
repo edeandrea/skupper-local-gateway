@@ -8,7 +8,7 @@ These instructions have only been tested on macOS Monterey on a Macbook M1Pro. Y
 
 1. Create [`laptop-rest-villains.yaml`](laptop-rest-villains.yaml) or [`laptop-rest-fights.yaml`](laptop-rest-fights.yaml)
     - If using `laptop-rest-fights.yaml`, in `/etc/hosts`, add entry for `fights-kafka` -> `localhost`
-2. Execute these commands:
+2. Execute these commands, making sure :
    ```shell
    PROJECT_NAME=<my_project>
    LAPTOP_FILE_NAME=<laptop_file_name>
@@ -59,3 +59,5 @@ To undo what you've done you basically have to unexpose everything you've expose
     - For `rest-villains`, find the `Service` in https://github.com/quarkusio/quarkus-super-heroes/blob/main/rest-villains/deploy/k8s/java17-openshift.yml and re-deploy it
 
 If you proxied `rest-fights` you'll notice after returning to the UI that the fight results now differ from the event statistics. This is because the event statistics is reading from the Kafka topic whereas the fights UI is reading from the MongoDB database. When the proxy was in place, a local instance of MongoDB was used, but outgoing messages were still sent to the Kafka topic on the cluster.
+
+You can also simply delete the namespace :)
