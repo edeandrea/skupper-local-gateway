@@ -33,7 +33,7 @@ Before beginning, make sure your application is already deployed into Kubernetes
     - If proxying [`rest-villains`](https://github.com/quarkusio/quarkus-super-heroes/tree/main/rest-villains), there isn't any additional configuration needed.
     - Once config is done, start the local service in [Dev Mode](https://quarkus.io/guides/dev-mode-differences) (`mvnw quarkus:dev` or `quarkus dev`).
 
-Now the traffic on your Kubernetes/OpenShift cluster will route through your local laptop & back out to the cluster. The database (MongoDB for `rest-fights` or PostgreSQL for `rest-heroes`/`rest-villains`) will be running locally and managed by Q[uarkus Dev Services](https://quarkus.io/guides/dev-services).
+Now the traffic on your Kubernetes/OpenShift cluster will route through your local laptop & back out to the cluster. The database (MongoDB for `rest-fights` or PostgreSQL for `rest-heroes`/`rest-villains`) will be running locally and managed by [Quarkus Dev Services](https://quarkus.io/guides/dev-services).
 
 ## Undo the setup
 To undo what you've done you basically have to unexpose everything you've exposed.
