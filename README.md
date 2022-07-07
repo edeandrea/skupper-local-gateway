@@ -8,7 +8,7 @@ One of those Kubernetes clusters could be a local [minikube](https://minikube.si
 
 What this guide aims to do is to proxy _any_ local process running on a local laptop with a Kubernetes cluster so that traffic will flow in and out of a local laptop, allowing the application(s) on the Kubernetes cluster to interact with a local laptop as if it was running on the cluster.
 
-These instructions help set up the Skupper gateway process on a local laptop so that it _looks_ like a Kubernetes cluster to the outside world.
+These instructions help set up the Skupper gateway process on a local laptop running in a container so that it _looks_ like a Kubernetes cluster to the outside world.
 
 ## Skupper Setup instructions
 
