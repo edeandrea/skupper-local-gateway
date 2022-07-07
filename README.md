@@ -2,6 +2,14 @@
 
 These instructions are for working with the [Quarkus Superheroes sample](https://github.com/quarkusio/quarkus-super-heroes). They allow you to use [Skupper](https://skupper.io) to proxy traffic of one of the individual services to your local laptop where you can run that service in [Quarkus Dev Mode](https://quarkus.io/guides/dev-mode-differences).
 
+[Skupper](https://skupper.io) is used to proxy the traffic in and out of the cluster to/from a local laptop. [Skupper](https://skupper.io) allows applications to span multiple Kubernetes clusters and communicate securely between them without the need for VPNs or special firewall rules.
+
+One of those Kubernetes clusters could be a local [minikube](https://minikube.sigs.k8s.io), in which case the [setup instructions](https://skupper.io/start) would work out of the box.
+
+What this guide aims to do is to proxy _any_ local process running on a local laptop with a Kubernetes cluster so that traffic will flow in and out of a local laptop, allowing the application(s) on the Kubernetes cluster to interact with a local laptop as if it was running on the cluster.
+
+These instructions help set up the Skupper gateway process on a local laptop so that it _looks_ like a Kubernetes cluster to the outside world.
+
 ## Skupper Setup instructions
 
 These instructions have only been tested on macOS Monterey on a Macbook M1Pro. You need to follow this for each & every namespace you want to proxy. The bundle that skupper generates is specific to a Kubernetes namespace.
